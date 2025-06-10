@@ -1,0 +1,628 @@
+/* Seu CSS existente do index.html deve ser colado aqui */
+:root {
+    --primary-color: #4CAF50; /* Verde vibrante */
+    --primary-dark: #388E3C; /* Verde mais escuro para hover */
+    --secondary-color: #FFC107; /* Amarelo para destaque */
+    --background-color: #F5F7FA; /* Cinza claro suave */
+    --card-background: #FFFFFF; /* Branco para cartões */
+    --text-color: #333333; /* Cinza escuro para texto principal */
+    --light-text-color: #666666; /* Cinza médio para texto secundário */
+    --border-color: #E0E0E0; /* Borda suave */
+    --correct-answer: #d4edda; /* Verde claro para resposta correta */
+    --incorrect-answer: #f8d7da; /* Vermelho claro para resposta incorreta */
+    --selected-answer: #e0f7fa; /* Azul claro para resposta selecionada */
+    --warning-color: #ffc107; /* Amarelo para avisos */
+    --error-color: #dc3545; /* Vermelho para erros */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-color);
+    position: relative; /* Necessário para posicionamento do modal */
+}
+
+.header {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centraliza o título */
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.header-title {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.8em;
+}
+
+.config-btn {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s ease;
+}
+
+.config-btn:hover {
+    transform: translateY(-50%) rotate(30deg);
+}
+
+.welcome-screen {
+    flex-grow: 1; /* Faz a tela de boas-vindas ocupar o espaço restante */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.welcome-content {
+    background-color: var(--card-background);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.welcome-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+    font-size: 2.2em;
+}
+
+.welcome-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--light-text-color);
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: #f0f0f0;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.secondary-btn:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.success-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.success-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.quiz-section {
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o card de questão */
+}
+
+.quiz-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+}
+
+.quiz-materia {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.quiz-info {
+    display: flex;
+    gap: 20px;
+    font-size: 1.1em;
+    color: var(--light-text-color);
+}
+
+.question-card {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.question-enunciado {
+    font-size: 1.25em;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.question-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.question-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.alternativas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.alternativa-item {
+    background-color: var(--background-color);
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.alternativa-item:hover {
+    background-color: #e9ecef;
+    border-color: var(--primary-color);
+}
+
+.alternativa-item.selected {
+    background-color: var(--selected-answer);
+    border-color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Estilos para o gabarito */
+.alternativa-item.correct {
+    background-color: var(--correct-answer);
+    border-color: var(--primary-dark);
+    font-weight: 700;
+}
+
+.alternativa-item.incorrect {
+    background-color: var(--incorrect-answer);
+    border-color: var(--error-color);
+    font-weight: 700;
+}
+
+.alternativa-item span.prefix {
+    font-weight: 600;
+    margin-right: 10px;
+    color: var(--primary-dark);
+}
+
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px;
+    gap: 15px;
+    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+}
+
+.navigation-buttons .btn {
+    flex: 1; /* Faz os botões ocuparem o espaço igualmente */
+    min-width: 120px; /* Garante um tamanho mínimo */
+}
+
+/* Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    max-width: 700px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.modal-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.close-button {
+    color: var(--light-text-color);
+    font-size: 2.2em;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--text-color);
+}
+
+/* Config Modal Specific */
+.config-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+.config-item label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-size: 1.1em;
+}
+
+.config-input, .config-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.config-input:focus, .config-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+    outline: none;
+}
+
+.modal-content .btn {
+    margin-top: 20px;
+    width: auto;
+    padding: 12px 30px;
+}
+
+/* Result Modal Specific */
+.result-content {
+    text-align: left;
+}
+
+.result-text {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.result-text span {
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.result-summary {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 25px;
+    border: 1px solid var(--border-color);
+}
+
+.result-summary h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.materia-summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
+    font-size: 1.1em;
+}
+
+.materia-summary-item:last-child {
+    border-bottom: none;
+}
+
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* Gabarito Modal Specific */
+.gabarito-content {
+    text-align: left;
+    max-height: 80vh; /* Limita a altura do conteúdo para permitir scroll */
+    overflow-y: auto; /* Adiciona scroll se o conteúdo for muito longo */
+}
+
+.gabarito-questao {
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.gabarito-questao:last-child {
+    margin-bottom: 0;
+}
+
+.gabarito-questao h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.gabarito-alternativa {
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    font-size: 1em;
+    line-height: 1.4;
+    border: 1px solid transparent; /* Para consistência */
+}
+
+.gabarito-alternativa.correct {
+    background-color: var(--correct-answer);
+    border-color: var(--primary-dark);
+    font-weight: 600;
+}
+
+.gabarito-alternativa.incorrect {
+    background-color: var(--incorrect-answer);
+    border-color: var(--error-color);
+    font-weight: 600;
+}
+
+.gabarito-alternativa .prefix {
+    font-weight: 700;
+    margin-right: 8px;
+}
+
+.explanation {
+    margin-top: 15px;
+    font-size: 0.95em;
+    line-height: 1.5;
+    background-color: #f0f8ff; /* Azul bem clarinho para a explicação */
+    border-left: 4px solid #2196f3; /* Borda azul para destaque */
+    padding: 15px;
+    border-radius: 6px;
+    color: #333;
+}
+
+.explanation strong {
+    color: #2196f3;
+}
+
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 1.5em;
+    }
+
+    .config-btn {
+        font-size: 1.8em;
+        right: 10px;
+    }
+
+    .welcome-content,
+    .modal-content,
+    .question-card {
+        padding: 25px;
+    }
+
+    .welcome-title {
+        font-size: 1.8em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .quiz-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .quiz-info {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .question-enunciado {
+        font-size: 1.1em;
+    }
+
+    .alternativa-item {
+        font-size: 1em;
+        padding: 12px 15px;
+    }
+
+    .navigation-buttons {
+        flex-direction: column;
+    }
+
+    .modal-content h2 {
+        font-size: 1.6em;
+    }
+
+    .close-button {
+        font-size: 1.8em;
+        top: 10px;
+        right: 15px;
+    }
+
+    .config-item label {
+        font-size: 1em;
+    }
+
+    .config-input, .config-select {
+        padding: 10px 12px;
+        font-size: 0.95em;
+    }
+
+    .result-text, .materia-summary-item {
+        font-size: 1.05em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 10px;
+    }
+
+    .header-title {
+        font-size: 1.3em;
+    }
+
+    .config-btn {
+        font-size: 1.5em;
+        right: 5px;
+    }
+
+    .welcome-content,
+    .modal-content,
+    .question-card {
+        padding: 15px;
+    }
+
+    .welcome-title {
+        font-size: 1.5em;
+    }
+
+    .welcome-description {
+        font-size: 0.9em;
+    }
+
+    .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .quiz-materia {
+        font-size: 1.2em;
+    }
+
+    .quiz-info {
+        gap: 10px;
+        font-size: 0.95em;
+    }
+
+    .question-enunciado {
+        font-size: 1em;
+    }
+
+    .alternativa-item {
+        font-size: 0.9em;
+        padding: 10px 12px;
+    }
+
+    .gabarito-content {
+        padding: 15px;
+    }
+
+    .gabarito-questao {
+        padding: 15px;
+    }
+}

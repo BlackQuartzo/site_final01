@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado ENEM/Vestibular</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header class="header">
+        <h1 class="header-title">Simulado ENEM/Vestibular</h1>
+        <button id="abrirConfigBtn" class="config-btn">⚙️</button>
+    </header>
+
+    <section id="welcomeScreen" class="welcome-screen">
+        <div class="welcome-content">
+            <h2 class="welcome-title">Bem-vindo ao Simulado!</h2>
+            <p class="welcome-description">Prepare-se para o ENEM e vestibulares com questões de diversas matérias e dificuldades. Configure seu simulado e comece a testar seus conhecimentos!</p>
+            <button id="iniciarSimuladoBtn" class="btn primary-btn">Iniciar Simulado</button>
+        </div>
+    </section>
+
+    <div id="configModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="fecharConfigModalBtn">&times;</span>
+            <h2>Configurações do Simulado</h2>
+            <div class="config-item">
+                <label for="numQuestoesInput">Número de Questões:</label>
+                <input type="number" id="numQuestoesInput" class="config-input" value="10" min="1">
+            </div>
+            <div class="config-item">
+                <label for="materiaSelect">Matéria:</label>
+                <select id="materiaSelect" class="config-select">
+                    <option value="">Todas as Matérias</option>
+                    </select>
+            </div>
+            <div class="config-item">
+                <label for="conteudoSelect">Conteúdo Específico:</label>
+                <select id="conteudoSelect" class="config-select">
+                    <option value="">Todos os Conteúdos</option>
+                    </select>
+            </div>
+            <div class="config-item">
+                <label for="dificuldadeSelect">Dificuldade:</label>
+                <select id="dificuldadeSelect" class="config-select">
+                    <option value="">Todas as Dificuldades</option>
+                    <option value="1">Fácil</option>
+                    <option value="2">Média</option>
+                    <option value="3">Difícil</option>
+                </select>
+            </div>
+            <div class="config-item">
+                <label for="serieSelect">Série/Ano:</label>
+                <select id="serieSelect" class="config-select">
+                    <option value="">Todas as Séries</option>
+                    <option value="1º ano">1º ano</option>
+                    <option value="2º ano">2º ano</option>
+                    <option value="3º ano">3º ano</option>
+                    <option value="ENEM">ENEM</option>
+                </select>
+            </div>
+            <button id="salvarConfigBtn" class="btn primary-btn">Salvar e Iniciar</button>
+        </div>
+    </div>
+
+    <section id="quizSection" class="quiz-section hidden">
+        <div class="quiz-header">
+            <h2 id="materiaDisplay" class="quiz-materia">Matéria: Português</h2>
+            <div class="quiz-info">
+                <span id="questionCounter" class="question-counter">Questão 1/10</span>
+                <span id="timer" class="timer">00:00:00</span>
+            </div>
+        </div>
+        <div class="question-card">
+            <p id="questionEnunciado" class="question-enunciado">
+                </p>
+            <div id="questionImageContainer" class="question-image-container hidden">
+                <img id="questionImage" src="" alt="Imagem da Questão" class="question-image">
+            </div>
+            <div id="alternativasContainer" class="alternativas-container">
+                </div>
+        </div>
+        <div class="navigation-buttons">
+            <button id="prevQuestionBtn" class="btn secondary-btn">Anterior</button>
+            <button id="nextQuestionBtn" class="btn primary-btn">Próxima</button>
+            <button id="enviarSimuladoBtn" class="btn success-btn">Enviar Simulado</button>
+        </div>
+    </section>
+
+    <div id="resultModal" class="modal">
+        <div class="modal-content result-content">
+            <span class="close-button" id="fecharModalBtn">&times;</span>
+            <h2>Resultados do Simulado</h2>
+            <p class="result-text">Olá, <span id="userNameDisplay"></span>!</p>
+            <p class="result-text">Você acertou <span id="scoreDisplay">0</span> de <span id="totalQuestionsDisplay">0</span> questões.</p>
+            <p class="result-text">Seu tempo total foi de <span id="timeTakenDisplay">00:00:00</span>.</p>
+            <div class="result-summary">
+                <h3>Resumo por Matéria:</h3>
+                <ul id="materiaSummaryList">
+                    </ul>
+            </div>
+            <div class="result-actions">
+                <button id="revisarGabaritoBtn" class="btn secondary-btn">Revisar Gabarito</button>
+                <button id="novoSimuladoBtn" class="btn success-btn">Novo Simulado</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="gabaritoModal" class="modal">
+        <div class="modal-content gabarito-content">
+            <span class="close-button" id="fecharGabaritoModalBtn">&times;</span>
+            <h2>Gabarito Detalhado</h2>
+            <div id="gabaritoContent">
+                </div>
+            <button id="voltarResultadosBtn" class="btn primary-btn">Voltar aos Resultados</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>
